@@ -20,6 +20,8 @@ namespace Desafio.Piramide
 
                 if (n >= 3 && n <= 8)
                 {
+                    Console.WriteLine("\n===========================================\n");
+
                     for (int i = 0; i < n; i++)
                     {
                         for (int j = 0; j < n - i - 1; j++)
@@ -32,6 +34,29 @@ namespace Desafio.Piramide
                         }
                         Console.WriteLine();
                     }
+
+                    Console.WriteLine("\n===========================================\n");
+
+                    for (int i = 0; i < n; i++)
+                    {
+                        for (int j = 0; j < n - i - 1; j++)
+                        {
+                            Console.Write("  ");
+                        }
+                        for (int j = 0; j <= i; j++)
+                        {
+                            Console.Write("# ");
+                        }
+
+                        for (int j = 0; j <= i; j++)
+                        {
+                            Console.Write("# ");
+                        }
+
+                        Console.WriteLine();
+                    }
+
+                    Console.WriteLine("\n===========================================\n");
 
                     Console.WriteLine("Deseja continuar? (S/N)");   
                     if (Console.ReadLine().ToUpper() == "N") break;
