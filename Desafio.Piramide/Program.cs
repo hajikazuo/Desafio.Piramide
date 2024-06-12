@@ -13,58 +13,70 @@ namespace Desafio.Piramide
             while (true)
             {
                 Console.WriteLine("\nDigite o número de linhas da pirâmide: ");
-
-                int n = int.Parse(Console.ReadLine());
-
+                int n = VerificaNumero(3, 8);
                 Console.WriteLine("\n");
 
-                if (n >= 3 && n <= 8)
+                Desenhar(n);
+
+                Console.WriteLine("Deseja continuar? (S/N)");
+                if (Console.ReadLine().ToUpper() == "N")
+                    break;
+            }
+        }
+
+        private static int VerificaNumero(int min, int max)
+        {
+            int n;
+            while (true)
+            {
+                if (int.TryParse(Console.ReadLine(), out n) && n >= min && n <= max)
                 {
-                    Console.WriteLine("\n===========================================\n");
+                    break;
+                }
+                Console.WriteLine($"Número inválido! Digite um número entre {min} e {max}.");
+            }
+            return n;
+        }
 
-                    for (int i = 0; i < n; i++)
-                    {
-                        for (int j = 0; j < n - i - 1; j++)
-                        {
-                            Console.Write("  "); 
-                        }
-                        for (int j = 0; j <= i; j++)
-                        {
-                            Console.Write("# ");
-                        }
-                        Console.WriteLine();
-                    }
+        private static void Desenhar(int n)
+        {
+            Console.WriteLine("\n===========================================\n");
 
-                    Console.WriteLine("\n===========================================\n");
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n - i - 1; j++)
+                {
+                    Console.Write("  ");
+                }
+                for (int j = 0; j <= i; j++)
+                {
+                    Console.Write("# ");
+                }
+                Console.WriteLine();
+            }
 
-                    for (int i = 0; i < n; i++)
-                    {
-                        for (int j = 0; j < n - i - 1; j++)
-                        {
-                            Console.Write("  ");
-                        }
-                        for (int j = 0; j <= i; j++)
-                        {
-                            Console.Write("# ");
-                        }
+            Console.WriteLine("\n===========================================\n");
 
-                        for (int j = 0; j <= i; j++)
-                        {
-                            Console.Write("# ");
-                        }
-
-                        Console.WriteLine();
-                    }
-
-                    Console.WriteLine("\n===========================================\n");
-
-                    Console.WriteLine("Deseja continuar? (S/N)");   
-                    if (Console.ReadLine().ToUpper() == "N") break;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n - i - 1; j++)
+                {
+                    Console.Write("  ");
+                }
+                for (int j = 0; j <= i; j++)
+                {
+                    Console.Write("# ");
                 }
 
-                else Console.WriteLine("Número de linhas inválido! Digite um número entre 3 e 8. Deseja continuar? (S/N)");
-                if (Console.ReadLine().ToUpper() == "N") break;
+                for (int j = 0; j <= i; j++)
+                {
+                    Console.Write("# ");
+                }
+
+                Console.WriteLine();
             }
+
+            Console.WriteLine("\n===========================================\n");
         }
     }
 }
